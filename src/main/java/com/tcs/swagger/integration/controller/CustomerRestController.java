@@ -28,7 +28,7 @@ public class CustomerRestController {
     @Autowired
     private ICustomerService service;
 
-    @PostMapping("/create")
+    @PostMapping("create")
     public ResponseEntity<String> saveCustomer(@RequestBody Customer customer){
         ResponseEntity<String> resp=null;
         try {
@@ -46,7 +46,7 @@ public class CustomerRestController {
         return resp;
     }
 
-    @GetMapping("/view-customer/{cid}")
+    @GetMapping("view-customer/{cid}")
     public ResponseEntity<?> getCustomerById(@PathVariable("cid") Integer id){
         ResponseEntity<?> resp=null;
         try {
@@ -63,7 +63,7 @@ public class CustomerRestController {
         return resp;
     }
 
-    @GetMapping("/all-customer")
+    @GetMapping("all-customer")
     public ResponseEntity<?> getAlls(){
         ResponseEntity<?> resp=null;
         try {
@@ -80,7 +80,7 @@ public class CustomerRestController {
         return resp;
     }
 
-    @DeleteMapping("/delete-customer/{cid}")
+    @DeleteMapping("delete-customer/{cid}")
     public ResponseEntity<String> deleteCustomer(@PathVariable("cid") Integer id){
         ResponseEntity<String> resp=null;
         if(service.CustomerExist(id)) {
@@ -92,7 +92,7 @@ public class CustomerRestController {
         return resp;
     }
 
-    @PutMapping("/update-customer/{cid}")
+    @PutMapping("update-customer/{cid}")
     public ResponseEntity<?> updateCustomer(@PathVariable("cid") Integer id,@RequestBody Customer customer){
         ResponseEntity<?> response=null;
         if(service.CustomerExist(id)) {
